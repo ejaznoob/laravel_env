@@ -21,6 +21,8 @@ core.setOutput('ENVArray: ', env);
 
 let textcontent=''
 let filecontent = fs.readFileSync(filePath)
+core.setOutput('ENVArray: ', filecontent);
+
 var FileEnv = filecontent.split("\r\n");
 env.forEach((value,index) => {
     for (var i = 0; i < FileEnv.length; i++)
