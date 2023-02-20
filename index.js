@@ -3,6 +3,7 @@ const core = require('@actions/core');
 const fs = require('fs');
 const path = require('path');
 
+
 const file = core.getInput('file');
 const prefix = strToUpper(core.getInput('prefix'));
 const env = Object.keys(process.env)
