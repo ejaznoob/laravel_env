@@ -22,9 +22,10 @@ core.setOutput('ENVArray: ', env);
 let textcontent=''
 let filecontent = fs.readFile(filePath,function(content){
     core.setOutput('ENVArray: ', filecontent);
+    var FileEnv = content.split("\r\n");
+
 })
 
-var FileEnv = filecontent.split("\r\n");
 env.forEach((value,index) => {
     for (var i = 0; i < FileEnv.length; i++)
     {
