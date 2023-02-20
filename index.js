@@ -7,6 +7,11 @@ const readline = require('readline');
 
 const file = core.getInput('file');
 const prefix = strToUpper(core.getInput('prefix'));
+
+const workspace = process.env.GITHUB_WORKSPACE;
+const filePath = path.join(workspace, file);
+
+
 const env = Object.keys(process.env)
     .filter(key => key.startsWith(prefix) && isUpper(key))
     .map(key => `${removePrefix(key, prefix)}="${process.env[key]}"`);
@@ -29,8 +34,6 @@ env.forEach((value,index) => {
     }
 });
 
-const workspace = process.env.GITHUB_WORKSPACE;
-const filePath = path.join(workspace, file);
 
 fs.writeFile(filePath, env, err => {
     if (err) {
