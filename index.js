@@ -21,8 +21,7 @@ core.setOutput('ENVArray: ', env);
 let FileEnv = ''
 let textcontent=''
 const data = fs.readFileSync('./.env', {encoding:'utf8', flag:'r'});
-core.setOutput('Read: ', data);
-console.log('We read',data);
+FileEnv = data.split("\n\r")
 
 
 env.forEach((value,index) => {
@@ -31,13 +30,13 @@ env.forEach((value,index) => {
         let thisline = FileEnv[i]
         let startstring = value + "="
         if(thisline.startsWith(startstring)){
-            textcontent += startstring
+            textcontent += startstring + "\r\n";
         }
         // Do something with arr
     }
 });
 
-
+console.log("New Env ", textcontent)
 //fs.writeFile(filePath, env, err => {
 fs.writeFile(filePath, 'Test', err => {
     if (err) {
