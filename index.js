@@ -22,6 +22,7 @@ let FileEnv = ''
 let textcontent=''
 const data = fs.readFileSync('./.env', {encoding:'utf8', flag:'r'});
 core.setOutput('Read: ', data);
+console.log('We read',data);
 
 
 env.forEach((value,index) => {
