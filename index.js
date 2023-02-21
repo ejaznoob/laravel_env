@@ -28,22 +28,21 @@ console.log("Total Lines", FileEnv.length)
 for (var i = 0; i < FileEnv.length; i++)
 {
     let thisline = FileEnv[i]
-    console.log(">>>>>>>>>>>>")
-    console.log(thisline)
-    console.log(">>>>>>>>>>>>")
+    let matched = false
 
     env.forEach((value,index) => {
         let varname = value.split('=')[0]
         let startstring = varname + "="
         if(thisline.startsWith(startstring)){
             textcontent += value + "\n";
-            console.log("=========== Matching ==========")
+            matched =true
         }
     });
+    if(!matched){
+        textcontent += thisline + "\n";
+    }
 
-
-    // Do something with arr
-}
+ }
 
 console.log("New Env ", textcontent)
 //fs.writeFile(filePath, env, err => {
