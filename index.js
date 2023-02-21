@@ -36,7 +36,7 @@ for (var i = 0; i < FileEnv.length; i++)
         let varname = value.split('=')[0]
         let startstring = varname + "="
         if(thisline.startsWith(startstring)){
-            textcontent += startstring + "\n";
+            textcontent += value + "\n";
             console.log("=========== Matching ==========")
         }
     });
