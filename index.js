@@ -40,6 +40,25 @@ for (var i = 0; i < FileEnv.length; i++)
     }
 
  }
+//Make sure all the specified env variables are added to env file
+env.forEach((value,index) => {
+
+   let textenv = textcontent.split(/\r?\n/)
+    let varname = value.split('=')[0]
+    let startstring1 = varname + "="
+
+    let found = false
+    for (var i = 0; i < textenv.length; i++) {
+        let thisline1 = textenv[i]
+        if(thisline1.startsWith(startstring1)){
+            found =true
+        }
+    }
+    if(!found){
+        textcontent += value + "\n";
+    }
+
+});
 
  //fs.writeFile(filePath, env, err => {
 fs.writeFile(targetfilePath, textcontent, err => {
