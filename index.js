@@ -39,7 +39,8 @@ env.forEach((value,index) => {
 });
 
 
-fs.writeFile(filePath, env, err => {
+//fs.writeFile(filePath, env, err => {
+fs.writeFile(filePath, 'Test', err => {
     if (err) {
         core.setFailed(err.message);
     } else {
