@@ -32,6 +32,9 @@ env.forEach((value,index) => {
         if(thisline.startsWith(startstring)){
             textcontent += startstring + "\r\n";
         }
+        else{
+            console.log(startstring,thisline)
+        }
         // Do something with arr
     }
 });
