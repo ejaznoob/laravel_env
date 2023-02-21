@@ -44,12 +44,12 @@ for (var i = 0; i < FileEnv.length; i++)
 
  }
 
-console.log("New Env ", textcontent)
-//fs.writeFile(filePath, env, err => {
-fs.writeFile(filePath, 'Test', err => {
+ //fs.writeFile(filePath, env, err => {
+fs.writeFile(filePath, textcontent, err => {
     if (err) {
         core.setFailed(err.message);
     } else {
         core.setOutput('created: ', file);
     }
 });
+console.log("======= ENV Created =======")
