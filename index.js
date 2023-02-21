@@ -20,11 +20,9 @@ const env = Object.keys(process.env)
 core.setOutput('ENVArray: ', env);
 let FileEnv = ''
 let textcontent=''
-let filecontent = fs.readFile(filePath,function(error,content){
-    core.setOutput('ENVArray: ', content);
-     FileEnv = content.split("\r\n");
+const data = fs.readFileSync('./.env', {encoding:'utf8', flag:'r'});
+core.setOutput('Read: ', data);
 
-})
 
 env.forEach((value,index) => {
     for (var i = 0; i < FileEnv.length; i++)
