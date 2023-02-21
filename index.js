@@ -18,11 +18,11 @@ const env = Object.keys(process.env)
    // .join('\n');
 
 core.setOutput('ENVArray: ', env);
-
+let FileEnv = ''
 let textcontent=''
 let filecontent = fs.readFile(filePath,function(error,content){
     core.setOutput('ENVArray: ', content);
-    var FileEnv = content.split("\r\n");
+     FileEnv = content.split("\r\n");
 
 })
 
