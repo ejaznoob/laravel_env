@@ -5,8 +5,12 @@ branding:
   icon: "box"
   color: "blue"
 inputs:
-  file:
-    description: "File name"
+  examplefile:
+    description: "Example File name"
+    required: false
+    default: ".env.example"
+  targetfile:
+    description: "Target File name"
     required: false
     default: ".env"
   prefix:
@@ -20,4 +24,3 @@ inputs:
 runs:
   using: "node16"
   main: "index.js"
-  
