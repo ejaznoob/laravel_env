@@ -28,9 +28,10 @@ env.forEach((value,index) => {
     for (var i = 0; i < FileEnv.length; i++)
     {
         let thisline = FileEnv[i]
-        let startstring = value + "="
+        let varname = value.split('=')[0]
+        let startstring = varname + "="
         if(thisline.startsWith(startstring)){
-            textcontent += startstring + "\r\n";
+            textcontent += startstring + "\n";
         }
         else{
             console.log(startstring,thisline)
