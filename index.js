@@ -20,11 +20,12 @@ const env = Object.keys(process.env)
 core.setOutput('ENVArray: ', env);
 let FileEnv = ''
 let textcontent=''
-const data = fs.readFileSync('./.env', {encoding:'utf8', flag:'r'});
-FileEnv = data.split("\n\r")
+const data = fs.readFileSync('./.env.example', {encoding:'utf8', flag:'r'});
+FileEnv = data.split(/\r?\n/)
 
-
+console.log("Total Lines", FileEnv.length)
 env.forEach((value,index) => {
+
     for (var i = 0; i < FileEnv.length; i++)
     {
         let thisline = FileEnv[i]
