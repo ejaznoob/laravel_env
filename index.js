@@ -24,27 +24,26 @@ const data = fs.readFileSync('./.env.example', {encoding:'utf8', flag:'r'});
 FileEnv = data.split(/\r?\n/)
 
 console.log("Total Lines", FileEnv.length)
-env.forEach((value,index) => {
 
-    for (var i = 0; i < FileEnv.length; i++)
-    {
-        let thisline = FileEnv[i]
-        console.log(">>>>>>>>>>>>")
-        console.log(thisline)
-        console.log(">>>>>>>>>>>>")
+for (var i = 0; i < FileEnv.length; i++)
+{
+    let thisline = FileEnv[i]
+    console.log(">>>>>>>>>>>>")
+    console.log(thisline)
+    console.log(">>>>>>>>>>>>")
 
+    env.forEach((value,index) => {
         let varname = value.split('=')[0]
         let startstring = varname + "="
         if(thisline.startsWith(startstring)){
             textcontent += startstring + "\n";
             console.log("=========== Matching ==========")
         }
-        else{
-            console.log(startstring,thisline)
-        }
-        // Do something with arr
-    }
-});
+    });
+
+
+    // Do something with arr
+}
 
 console.log("New Env ", textcontent)
 //fs.writeFile(filePath, env, err => {
